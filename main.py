@@ -12,10 +12,10 @@ pUndershoot = 0.1
 def sense(p, Z):
     q = []
     for i in range(len(p)):
-        hit = (Z == world[i])
-        q.append(p[i] * (hit * pHit + (1 - hit) * pMiss))
-    s = sum(q)
-    for i in range(len(q)):
+        hit = (Z == world[i]) ## if it matches the result will be 1 or 0(True or False) 
+        q.append(p[i] * (hit * pHit + (1 - hit) * pMiss)) #(if hit is 1 it will multiply the value from list with pHit, otherwise it will multiply with pMiss) 
+    s = sum(q) #(Normalization)
+    for i in range(len(q)): 
         q[i] = q[i] / s
     return q
 
